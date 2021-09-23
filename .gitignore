@@ -1,4 +1,4 @@
 # Tge Woocommerce keys #
 ########################
 *.env
-*venv
+*venv/
