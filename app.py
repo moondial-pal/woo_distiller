@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from flask import Flask, render_template
 from woocommerce import API
 
-from tests.data.mock_order import order
+from mock_data.mock_order import order
 
 # initialize Flask application
 app = Flask(__name__)
