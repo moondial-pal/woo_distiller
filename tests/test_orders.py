@@ -16,3 +16,6 @@ def test_list_orders(mocker):
     wcapi.get("/orders", params={"per_page": 20}).json()
 
     requests.get.assert_called_once_with("orders")
+
+def test_order_id():
+    assert "id" == 727 in orders
