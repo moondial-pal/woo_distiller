@@ -1,6 +1,7 @@
 import requests
 from woocommerce import API
 
+from mock_data.mock_order import order
 
 def test_list_orders(mocker):
     url = "https://www.anything.com"
@@ -18,4 +19,4 @@ def test_list_orders(mocker):
     requests.get.assert_called_once_with("orders")
 
 def test_order_id():
-    assert "id" == 727 in orders
+    assert 'id' == '727' in order
