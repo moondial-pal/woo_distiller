@@ -18,12 +18,13 @@ CONSUMER_SECRET = os.getenv("CONSUMER_SECRET")
 # Generalized get function to make requests to woocommerce API
 def woo_get(url: str, endpoint: str):
     wcapi = API(
-        url=f"{url}",
+        url=url,
         consumer_key=CONSUMER_SECRET,
         consumer_secret=CONSUMER_KEY,
         version="wc/v3",
     )
-    return wcapi.json()
+    response = wcapi.get(endpoint, params={"per_page": 20})
+    return response.json()
 
 
 # Index route for Flask
