@@ -1,8 +1,8 @@
 # woo_distiller
-This app will scrape woocommerce endpoints and writes the requested data to a Google Cloud Platform Storage bucket.
+This app will scrape woocommerce endpoints and writes the requested data to a storage bucket.
 
 **Data is sent to the cloud**:
-- The app will send your data to either a GCP storage bucket or S3 storage.
+- The app will send your data to a GCP storage bucket.
 ## Adding your keys as environment variables:
 1. Firstly, clone this repo.
 2. Move into the woo_distiller directory.
@@ -28,3 +28,9 @@ This app will scrape woocommerce endpoints and writes the requested data to a Go
 | Windows | PowerShell | 
 | ----------- | ----------- |
 | Command | `PS C:\> venv\Scripts\Activate.ps1` |
+
+5. Then run the command `pip install -r requirements.txt`
+6. Following that, edit the .env file. Add your keys and bucket to the existing variables - example:
+ - `consumer_key=my_consumer_key`
+ - `consumer_seceret=my_consumer_seceret`
+ - `GCP_bucket_name=my_storage_bucket`
