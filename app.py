@@ -19,8 +19,8 @@ CONSUMER_SECRET = os.getenv("CONSUMER_SECRET")
 def woo_get(url: str, endpoint: str):
     wcapi = API(
         url=url,
-        consumer_key=CONSUMER_SECRET,
-        consumer_secret=CONSUMER_KEY,
+        consumer_key=CONSUMER_KEY,
+        consumer_secret=CONSUMER_SECRET,
         version="wc/v3",
     )
     response = wcapi.get(endpoint, params={"per_page": 20})
