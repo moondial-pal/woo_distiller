@@ -31,5 +31,5 @@ def woo_get(url: str, endpoint: str):
 # showing data on the page.
 @app.route("/")
 def index():
-    order_data = order
-    return render_template("index.html", order=order_data)
+    response = woo_get(http://www.pybites.es, products)
+    return render_template("index.html", response)
