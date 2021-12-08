@@ -15,12 +15,13 @@ CONSUMER_SECRET = os.getenv("CONSUMER_SECRET")
 
 
 # Generalized get function to make requests to woocommerce API
-def woo_get(url: str, endpoint: str):
+def woo_get(endpoint: str):
     wcapi = API(
-        url=url,
+        url="https://www.pybit.es",
         consumer_key=CONSUMER_KEY,
         consumer_secret=CONSUMER_SECRET,
         version="wc/v3",
+        timeout=50
     )
     response = wcapi.get(endpoint, params={"per_page": 20})
     return response.json()
@@ -31,5 +32,5 @@ def woo_get(url: str, endpoint: str):
 # showing data on the page.
 @app.route("/")
 def index():
-    order_data = order
-    return render_template("index.html", order=order_data)
+    response = woo_get("products")
+    return render_template("index.html", response=response)
