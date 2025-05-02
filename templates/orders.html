@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>WooCommerce Orders</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 2rem;
+            background-color: #f9f9f9;
+        }
+        .order {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .order h2 {
+            margin: 0 0 0.5rem 0;
+        }
+        .line-items {
+            margin-top: 1rem;
+            padding-left: 1rem;
+        }
+        .line-items li {
+            margin-bottom: 0.5rem;
+        }
+        .meta {
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Order Summary</h1>
+
+    {% if orders %}
+        {% for order in orders %}
+            <div class="order">
+                <h2>Order #{{ order.number }} — {{ order.status | capitalize }}</h2>
+                <p class="meta"><strong>Date:</strong> {{ order.date_created }}</p>
+                <p><strong>Total:</strong> ${{ order.total }}</p>
+                <p><strong>Customer:</strong> {{ order.billing.first_name }} {{ order.billing.last_name }} ({{ order.billing.email }})</p>
+
+                <h4>Line Items:</h4>
+                <ul class="line-items">
+                    {% for item in order.line_items %}
+                        <li>{{ item.quantity }} × {{ item.name }} — ${{ item.total }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No orders available.</p>
+    {% endif %}
+</body>
+</html>
