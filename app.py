@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 from flask import Flask, render_template, jsonify
 from woocommerce import API
-from mock_order import order as mock_orders
+from mock_data.mock_order import order as mock_orders
 
 # Load environment variables
 load_dotenv()
