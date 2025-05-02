@@ -22,7 +22,7 @@ A lightweight Flask app that connects to a WooCommerce store, displays products 
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/woo_distiller.git
+git clone https://github.com/moondial-pal/woo_distiller.git
 cd woo_distiller
 ```
 
