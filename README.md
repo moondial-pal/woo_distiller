@@ -22,52 +22,34 @@ A lightweight Flask app that connects to a WooCommerce store, displays products 
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/moondial-pal/woo_distiller.git
+git clone https://github.com/your-username/woo_distiller.git
 cd woo_distiller
 ```
 
-### 2. Create and activate a virtual environment
+### 2. Create and activate a virtual environment with Astral UV
 
-#### POSIX (bash/zsh)
+#### macOS/Linux (bash/zsh/fish)
 
 ```bash
-python -m venv venv
+uv venv
 source venv/bin/activate
 ```
 
-#### Fish shell
-
-```fish
-source venv/bin/activate.fish
-```
-
-#### Windows (cmd.exe)
-
-```cmd
-venv\Scripts\activate.bat
-```
-
-#### Windows PowerShell
+#### Windows (PowerShell or cmd)
 
 ```powershell
-venv\Scripts\Activate.ps1
+uv venv
+venv\Scripts\Activate.ps1  # PowerShell
+```
+
+```cmd
+venv\Scripts\activate.bat   # Command Prompt
 ```
 
 ### 3. Install dependencies
 
 ```bash
-pip install -r requirements.txt
-```
-
-### 4. Set up environment variables
-
-Create a `.env` file in the root directory using `.env.example` as a reference:
-
-```env
-CONSUMER_KEY=your_consumer_key
-CONSUMER_SECRET=your_consumer_secret
-WC_URL=https://yourstore.com
-GCP_BUCKET_NAME=your_gcp_bucket_name
+uv pip install -r requirements.txt
 ```
 
 ---
@@ -83,7 +65,9 @@ If `CONSUMER_KEY` or `CONSUMER_SECRET` is not set, the app will automatically fa
 
 ## 🌐 Usage
 
-Run the Flask development server:
+### Run the Flask development server
+
+With the included `.flaskenv` file, you can simply run:
 
 ```bash
 flask run
