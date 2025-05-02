@@ -1,3 +1,44 @@
+<!DOCTYPE html>
 <html>
-{{ response }}
+<head>
+    <meta charset="UTF-8">
+    <title>WooCommerce Products</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 2rem;
+        }
+        .product {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            padding: 1rem;
+        }
+        .product img {
+            max-width: 150px;
+            height: auto;
+        }
+        .product h2 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>WooCommerce Products</h1>
+
+    {% if response %}
+        {% for product in response %}
+            <div class="product">
+                <h2>{{ product.name }}</h2>
+                <p><strong>Price:</strong> {{ product.price or 'N/A' }}</p>
+                {% if product.images %}
+                    <img src="{{ product.images[0].src }}" alt="{{ product.name }}">
+                {% endif %}
+                <p>{{ product.description | safe }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No products found or API error occurred.</p>
+    {% endif %}
+</body>
 </html>
